@@ -1,0 +1,22 @@
+version: "3"
+services:
+  steam:
+    image: rpufky/steam:stable
+    restart: unless-stopped
+    ports:
+      - 27018:27018/udp
+      - 27018:27018/tcp
+      - 7777:7777/udp
+      - 7777:7777/tcp
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UPDATE_OS=1
+      - UPDATE_STEAM=1
+      - UPDATE_SERVER=1
+      - PLATFORM=windows
+      - STEAM_APP_ID=643090
+      - TZ=America/Chicago
+    volumes:
+      - ./data:/data
+      - /etc/localtime:/etc/localtime:ro
