@@ -1,10 +1,15 @@
-uptime=$1
-lobby_type=$2
-max_players=$3
+server_name=$1
+uptime=$2
+lobby_type=$3
+max_players=$4
+passcode=$5
 
 lobby_types[0]="paprikalobby"
 lobby_types[1]="velvetlobby"
 lobby_types[2]="arizonalobby2"
+
+echo setting server name to ${server_name}...
+sed -i "s/test_server/$server_name/" ./data/server.cfg
 
 case $lobby_type in
   paprika)
@@ -35,6 +40,10 @@ esac
 echo setting max player count to ${max_players}...
 sed -i "s/maxPlayers = 20/maxPlayers = ${max_players}/" ./data/server.cfg
 
+echo setting passcode to ${passcode}...
+sed -i "s/pass_code/${passcode}/" ./data/server.cfg
+
 docker-compose up &
+echo keeping server up for $uptime seconds...
 sleep $uptime
 docker-compose down
