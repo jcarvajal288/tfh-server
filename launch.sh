@@ -1,5 +1,6 @@
 uptime=$1
 lobby_type=$2
+max_players=$3
 
 lobby_types[0]="paprikalobby"
 lobby_types[1]="velvetlobby"
@@ -30,6 +31,9 @@ case $lobby_type in
     echo WARNING: unrecognized lobby type $lobby_type - keeping default velvet lobby
     ;;
 esac
+
+echo setting max player count to ${max_players}...
+sed -i "s/maxPlayers = 20/maxPlayers = ${max_players}/" ./data/server.cfg
 
 docker-compose up &
 sleep $uptime
