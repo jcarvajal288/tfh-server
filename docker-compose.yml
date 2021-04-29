@@ -14,7 +14,7 @@ services:
       - UPDATE_OS=1
       - UPDATE_STEAM=1
       - UPDATE_SERVER=1
-      - PLATFORM=windows
+      - PLATFORM=linux
       - STEAM_APP_ID=643090
       - TZ=America/Chicago
     volumes:
