@@ -23,13 +23,14 @@ WATCHDOG_TIME=300
 #trap shutdown SIGINT SIGKILL SIGTERM
 
 function start_server() {
-  WINEARCH=win32
+  mkdir -p /steam/.steam/sdk64/
+  cp ${SERVER_DIR}/linux64/steamclient.so /steam/.steam/sdk64/steamclient.so
   cp ./server.cfg ./server/config/server.cfg
-  su - steam -c "xvfb-run --auto-servernum wine ${SERVER_DIR}/LobbyExe.exe -f config/Lobby_server.geoproj -i --nomunge"
+  su - steam -c "${SERVER_DIR}/LobbyServer.sh"
 }
 
 function watch_server() {
-  if ps aux | grep [L]obbyExe > /dev/null; then
+  if ps aux | grep [L]obbyServer > /dev/null; then
     echo 'Server is running ...'
   else
     echo 'Starting server ...'
