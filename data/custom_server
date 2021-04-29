@@ -25,7 +25,7 @@ WATCHDOG_TIME=300
 function start_server() {
   WINEARCH=win32
   cp ./server.cfg ./server/config/server.cfg
-  su - steam -c "xvfb-run --auto-servernum wine ${SERVER_DIR}/LobbyExe.exe -f config/Lobby_server.geoproj -i --nomunge"
+  su - steam -c "${SERVER_DIR}/LobbyExe.exe"
 }
 
 function watch_server() {
