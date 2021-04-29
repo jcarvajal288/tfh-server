@@ -24,7 +24,7 @@ WATCHDOG_TIME=300
 
 function start_server() {
   mkdir -p /steam/.steam/sdk64/
-  cp steamclient.so /steam/.steam/sdk64/steamclient.so
+  cp ${SERVER_DIR}/steamclient.so /steam/.steam/sdk64/steamclient.so
   cp ./server.cfg ./server/config/server.cfg
   su - steam -c "${SERVER_DIR}/LobbyServer.sh"
 }
