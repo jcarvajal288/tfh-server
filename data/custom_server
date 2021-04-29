@@ -25,7 +25,7 @@ WATCHDOG_TIME=300
 function start_server() {
   WINEARCH=win32
   cp ./server.cfg ./server/config/server.cfg
-  su - steam -c "${SERVER_DIR}/LobbyExe.exe"
+  su - steam -c "${SERVER_DIR}/LobbyExe.sh"
 }
 
 function watch_server() {
