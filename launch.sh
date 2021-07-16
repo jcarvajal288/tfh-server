@@ -7,6 +7,7 @@ passcode=$5
 lobby_types[0]="paprikalobby"
 lobby_types[1]="velvetlobby"
 lobby_types[2]="arizonalobby2"
+lobby_types[3]="oleanderlobby"
 
 echo setting server name to ${server_name}...
 sed -i "s/test_server/$server_name/" ./data/server.cfg
@@ -23,6 +24,10 @@ case $lobby_type in
   arizona)
     echo setting lobby to arizona
     sed -i "s/velvetlobby/${lobby_types[2]}/" ./data/server.cfg
+    ;;
+  oleander)
+    echo setting lobby to oleander
+    sed -i "s/velvetlobby/${lobby_types[3]}/" ./data/server.cfg
     ;;
   random)
     echo setting lobby to random...
