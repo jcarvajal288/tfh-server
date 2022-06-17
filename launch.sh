@@ -10,12 +10,12 @@ lobby_types[2]="arizonalobby2"
 lobby_types[3]="oleanderlobby"
 
 echo setting server name to ${server_name}...
-sed -i "s/test_server/$server_name/" ./data/server.cfg
+sed -i "s/test_server/$server_name/" ./data/serverV3.cfg
 
 case $lobby_type in
   paprika)
     echo setting lobby to paprika
-    sed -i "s/velvetlobby/${lobby_types[0]}/" ./data/server.cfg
+    sed -i "s/velvetlobby/${lobby_types[0]}/" ./data/serverV3.cfg
     ;;
   velvet)
     echo setting lobby to velvet
@@ -23,11 +23,11 @@ case $lobby_type in
     ;;
   arizona)
     echo setting lobby to arizona
-    sed -i "s/velvetlobby/${lobby_types[2]}/" ./data/server.cfg
+    sed -i "s/velvetlobby/${lobby_types[2]}/" ./data/serverV3.cfg
     ;;
   oleander)
     echo setting lobby to oleander
-    sed -i "s/velvetlobby/${lobby_types[3]}/" ./data/server.cfg
+    sed -i "s/velvetlobby/${lobby_types[3]}/" ./data/serverV3.cfg
     ;;
   random)
     echo setting lobby to random...
